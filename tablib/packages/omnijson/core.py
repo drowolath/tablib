@@ -61,7 +61,8 @@ def dumps(o, **kwargs):
 
     try:
         return _engine[1](o)
-
+    except TypeError:
+        return _engine[1](str(o))
     except:
         ExceptionClass, why = sys.exc_info()[:2]
 
